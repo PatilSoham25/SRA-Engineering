@@ -33,7 +33,7 @@
     const btn=document.querySelector('.fb-top');
     if(!btn) return;
     window.addEventListener('scroll',()=>{
-      if(window.scrollY>400) btn.classList.add('show');
+      if(window.scrollY>100) btn.classList.add('show');
       else btn.classList.remove('show');
     });
     btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
@@ -73,21 +73,65 @@
     els.forEach(el=>obs.observe(el));
   }
 
-  // Form basic handler
-  function initForms(){
-    document.querySelectorAll('form[data-inquiry]').forEach(f=>{
-      f.addEventListener('submit',e=>{
-        e.preventDefault();
-        const btn=f.querySelector('button[type="submit"]');
-        const orig=btn.innerHTML;
-        btn.disabled=true;btn.innerHTML='Sending...';
-        setTimeout(()=>{
-          f.reset();btn.disabled=false;btn.innerHTML=orig;
-          alert('Thank you! Your inquiry has been received. Our team will contact you shortly.');
-        },900);
-      });
+  // WhatsApp Form Handler
+function initForms() {
+
+  document.querySelectorAll('form[data-inquiry]').forEach(form => {
+
+    form.addEventListener('submit', function(e) {
+
+      e.preventDefault();
+
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+
+      btn.disabled = true;
+      btn.innerHTML = 'Redirecting...';
+
+      // Get form values
+      const name = form.querySelector('[name="name"]')?.value || '';
+      const phone = form.querySelector('[name="phone"]')?.value || '';
+      const email = form.querySelector('[name="email"]')?.value || '';
+      const message = form.querySelector('[name="message"]')?.value || '';
+
+      // Your WhatsApp Number
+      const whatsappNumber = '919921672536'; // Replace with your number
+
+      // WhatsApp Message
+      const whatsappMessage =
+`Hello, I want to make an inquiry.
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+
+Message:
+${message}`;
+
+      // Encode message
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+
+      // WhatsApp URL
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+      // Open WhatsApp
+      window.open(whatsappURL, '_blank');
+
+      // Reset
+      setTimeout(() => {
+        form.reset();
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+      }, 1000);
+
     });
-  }
+
+  });
+
+}
+
+// Initialize
+// initForms();
 
   document.addEventListener('DOMContentLoaded',()=>{
     const page=document.body.getAttribute('data-page')||'';
