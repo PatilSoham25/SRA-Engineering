@@ -20,7 +20,16 @@
 <body data-page="contact">
 <div id="site-header"></div>
 
-<nav><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item active">Contact</li></ol></nav>
+<div class="breadcrumb-bar">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Contact</li>
+      </ol>
+    </nav>
+  </div>
+</div>
 
 <section class="page-banner">
   <div class="container text-center">
@@ -61,12 +70,30 @@
           <h4 class="mb-3"><i class="bi bi-envelope-paper-fill text-orange me-1"></i>Send Us a Message</h4>
           
 <form data-inquiry class="row g-3">
-  <div class="col-md-6"><label class="form-label">Your Name *</label><input class="form-control" required maxlength="100"></div>
-  <div class="col-md-6"><label class="form-label">Email *</label><input type="email" class="form-control" required maxlength="120"></div>
-  <div class="col-md-6"><label class="form-label">Phone *</label><input type="tel" class="form-control" required maxlength="20"></div>
-  <div class="col-md-6"><label class="form-label">Company</label><input class="form-control" maxlength="100"></div>
-  <div class="col-12"><label class="form-label">Product Interest</label><input class="form-control" value="" maxlength="120"></div>
-  <div class="col-12"><label class="form-label">Message *</label><textarea class="form-control" rows="4" required maxlength="800"></textarea></div>
+  <div class="col-md-6">
+    <label class="form-label">Your Name *</label>
+    <input type="text" name="name" class="form-control" required maxlength="100">
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Email *</label>
+    <input type="email" name="email" class="form-control" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Please enter a valid email address" maxlength="120">
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Phone *</label>
+    <input type="tel" name="phone" class="form-control" required pattern="[0-9]{10}" maxlength="10" title="Please enter exactly 10 digits">
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Company</label>
+    <input type="text" name="company" class="form-control" maxlength="100">
+  </div>
+  <div class="col-12">
+    <label class="form-label">Product Interest</label>
+    <input type="text" name="product" class="form-control" maxlength="120">
+  </div>
+  <div class="col-12">
+    <label class="form-label">Message *</label>
+    <textarea name="message" class="form-control" rows="4" required maxlength="800"></textarea>
+  </div>
   <div class="col-12">
     <button type="submit" class="btn btn-accent-sra px-4">
         <i class="bi bi-send me-1"></i>

@@ -99,6 +99,33 @@ html, body {
 .page-banner .breadcrumb-item.active{color:var(--sra-orange)}
 .page-banner .breadcrumb-item+.breadcrumb-item::before{color:#cdd4dd}
 
+/* Standalone Breadcrumb Bar */
+.breadcrumb-bar {
+  background-color: var(--sra-white);
+  padding: 12px 0;
+  border-bottom: 1px solid #eef2f7;
+  font-size: 0.95rem;
+}
+.breadcrumb-bar .breadcrumb {
+  margin-bottom: 0;
+  background: transparent;
+  padding: 0;
+}
+.breadcrumb-bar .breadcrumb-item a {
+  color: var(--sra-blue);
+  font-weight: 500;
+}
+.breadcrumb-bar .breadcrumb-item a:hover {
+  color: var(--sra-orange);
+}
+.breadcrumb-bar .breadcrumb-item.active {
+  color: var(--sra-grey);
+}
+.breadcrumb-bar .breadcrumb-item + .breadcrumb-item::before {
+  color: #aeb8c3; /* Light grey separator */
+  content: "/";
+}
+
 /* Cards */
 .feature-card{background:#fff;border-radius:12px;padding:34px 28px;box-shadow:var(--shadow-soft);transition:all .4s ease;height:100%;border-top:3px solid transparent}
 .feature-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-strong);border-top-color:var(--sra-orange)}
@@ -138,7 +165,7 @@ html, body {
 
 /* About split */
 .split-img{border-radius:14px;overflow:hidden;box-shadow:var(--shadow-strong);position:relative}
-.split-img img{display:block;width:100%}
+.split-img img{display:block;width:100%;height:50%;}
 .split-img::before{content:"";position:absolute;top:-20px;left:-20px;width:120px;height:120px;border:6px solid var(--sra-orange);border-radius:14px;z-index:-1}
 
 /* Testimonial */

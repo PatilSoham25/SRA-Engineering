@@ -75,61 +75,81 @@
 
   // WhatsApp Form Handler
 function initForms() {
-
   document.querySelectorAll('form[data-inquiry]').forEach(form => {
-
     form.addEventListener('submit', function(e) {
-
       e.preventDefault();
 
+      // Get form values
+      const name = form.querySelector('[name="name"]')?.value.trim() || '';
+      const phone = form.querySelector('[name="phone"]')?.value.trim() || '';
+      const email = form.querySelector('[name="email"]')?.value.trim() || '';
+      const company = form.querySelector('[name="company"]')?.value.trim() || 'N/A';
+      const product = form.querySelector('[name="product"]')?.value.trim() || 'N/A';
+      const message = form.querySelector('[name="message"]')?.value.trim() || '';
+
+      // JavaScript Validation 
+      // 1. Email Regex (Basic Structure check)
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+          alert("Please enter a valid email address.");
+          return; // Stop the script from continuing
+      }
+
+      // 2. Phone Regex (Exactly 10 numbers)
+      const phoneRegex = /^\d{10}$/;
+      if (!phoneRegex.test(phone)) {
+          alert("Please enter exactly 10 digits for your phone number.");
+          return; // Stop the script from continuing
+      }
+
+      // If validation passes, change button state
       const btn = form.querySelector('button[type="submit"]');
       const originalText = btn.innerHTML;
-
       btn.disabled = true;
       btn.innerHTML = 'Redirecting...';
 
-      // Get form values
-      const name = form.querySelector('[name="name"]')?.value || '';
-      const phone = form.querySelector('[name="phone"]')?.value || '';
-      const email = form.querySelector('[name="email"]')?.value || '';
-      const message = form.querySelector('[name="message"]')?.value || '';
+      // Array of WhatsApp Numbers - ADD YOUR SECOND NUMBER HERE
+      const whatsappNumbers = [
+          '919921672536',   // First Number
+          '918975041193'    // Second Number
+      ]; 
 
-      // Your WhatsApp Number
-      const whatsappNumber = '919921672536'; // Replace with your number
+      // WhatsApp Message Layout
+      const whatsappMessage = 
+`*New Inquiry Received*
 
-      // WhatsApp Message
-      const whatsappMessage =
-`Hello, I want to make an inquiry.
+*Name:* ${name}
+*Phone:* ${phone}
+*Email:* ${email}
+*Company:* ${company}
+*Product:* ${product}
 
-Name: ${name}
-Phone: ${phone}
-Email: ${email}
-
-Message:
+*Message:*
 ${message}`;
 
-      // Encode message
+      // Encode message for URL
       const encodedMessage = encodeURIComponent(whatsappMessage);
 
-      // WhatsApp URL
-      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+      // Loop through numbers and open WhatsApp for each
+      whatsappNumbers.forEach((number, index) => {
+          const whatsappURL = `https://wa.me/${number}?text=${encodedMessage}`;
+          
+          // Slight delay between opening tabs helps bypass aggressive pop-up blockers
+          setTimeout(() => {
+              window.open(whatsappURL, `_whatsapp_tab_${index}`);
+          }, index * 300);
+      });
 
-      // Open WhatsApp
-      window.open(whatsappURL, '_blank');
-
-      // Reset
+      // Reset form and button
       setTimeout(() => {
         form.reset();
         btn.disabled = false;
         btn.innerHTML = originalText;
-      }, 1000);
+      }, 1500);
 
     });
-
   });
-
 }
-
 // Initialize
 // initForms();
 
