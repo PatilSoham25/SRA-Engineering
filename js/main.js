@@ -29,15 +29,15 @@
   }
 
   // Scroll-to-top button
-  function initScrollTop(){
-    const btn=document.querySelector('.fb-top');
-    if(!btn) return;
-    window.addEventListener('scroll',()=>{
-      if(window.scrollY>100) btn.classList.add('show');
-      else btn.classList.remove('show');
-    });
-    btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-  }
+  // function initScrollTop(){
+  //   const btn=document.querySelector('.fb-top');
+  //   if(!btn) return;
+  //   window.addEventListener('scroll',()=>{
+  //     if(window.scrollY>100) btn.classList.add('show');
+  //     else btn.classList.remove('show');
+  //   });
+  //   btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  // }
 
   // Counter animation
   function initCounters(){
@@ -157,7 +157,7 @@ ${message}`;
     const page=document.body.getAttribute('data-page')||'';
     loadPartial('site-header','partials/header.html',page);
     loadPartial('site-footer','partials/footer.html');
-    initScrollTop();
+    // initScrollTop();
     initCounters();
     initFadeUp();
     initForms();

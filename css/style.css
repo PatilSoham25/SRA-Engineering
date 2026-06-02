@@ -144,10 +144,11 @@ html, body {
 .industry-card h5{color:#fff;margin:0;font-size:1.05rem}
 
 /* Product card */
+/* Product card */
 .product-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-soft);transition:all .4s;height:100%;display:flex;flex-direction:column}
 .product-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-strong)}
-.product-card .img-wrap{position:relative;overflow:hidden;aspect-ratio:4/3;background:#eef2f7}
-.product-card .img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.product-card .img-wrap{position:relative;overflow:hidden;aspect-ratio:4/3;background:#eef2f7; display: flex; align-items: center; justify-content: center;}
+.product-card .img-wrap img{width:100%;height:100%;object-fit:contain;transition:transform .6s} /* Changed from cover to contain */
 .product-card:hover .img-wrap img{transform:scale(1.1)}
 .product-card .img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(15,26,43,.55) 100%);opacity:0;transition:all .4s}
 .product-card:hover .img-wrap::after{opacity:1}
@@ -164,9 +165,30 @@ html, body {
 .counter-item .label{color:#e6ecf3;text-transform:uppercase;letter-spacing:2px;font-size:.85rem;font-weight:500}
 
 /* About split */
-.split-img{border-radius:14px;overflow:hidden;box-shadow:var(--shadow-strong);position:relative}
-.split-img img{display:block;width:100%;height:50%;}
-.split-img::before{content:"";position:absolute;top:-20px;left:-20px;width:120px;height:120px;border:6px solid var(--sra-orange);border-radius:14px;z-index:-1}
+.split-img {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-strong);
+  position: relative;
+  height: 450px; /* Stretches the container to match the right column's height */
+}
+.split-img img {
+  display: block;
+  width: 100%;
+  height: 100%; /* Forces the image to fill the stretched container */
+  object-fit: contain; /* Crops the image proportionally instead of squishing it */
+}
+.split-img::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 120px;
+  height: 120px;
+  border: 6px solid var(--sra-orange);
+  border-radius: 14px;
+  z-index: -1;
+}
 
 /* Testimonial */
 .testi-card{background:#fff;border-radius:14px;padding:32px;box-shadow:var(--shadow-soft);position:relative;height:100%}
@@ -212,10 +234,10 @@ html, body {
 .fb-top{
   background:var(--sra-orange);
 
-  opacity:0;
+  /* opacity:0;
   visibility:hidden;
 
-  transform:translateY(20px);
+  transform:translateY(20px); */
 
   transition:
     opacity .3s ease,
@@ -267,9 +289,26 @@ html, body {
 .specs-table tr:nth-child(even) td{background:#f9fafc}
 
 /* Gallery */
-.gallery-img{border-radius:10px;overflow:hidden;aspect-ratio:1;background:#eef2f7;transition:all .3s;cursor:pointer}
-.gallery-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.gallery-img:hover img{transform:scale(1.1)}
+.gallery-img {
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 1; /* Keeps the uniform square boxes */
+  background: #eef2f7;
+  transition: all .3s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Shows full image without cropping */
+  transition: transform .5s;
+}
+.gallery-img:hover img {
+  transform: scale(1.1);
+}
 
 /* Map */
 .map-wrap{position:relative;height:450px;overflow:hidden}
