@@ -43,7 +43,7 @@ html, body {
 .section-title p{color:var(--sra-grey);max-width:720px;margin:0 auto}
 
 /* Buttons */
-.btn{border-radius:6px;font-weight:600;padding:12px 28px;letter-spacing:.3px;transition:all .35s ease;border:none}
+.btn{border-radius:6px;font-weight:600;padding:15px 6px;margin-bottom: 8px; letter-spacing:.3px;transition:all .35s ease;border:none}
 .btn-primary-sra{background:var(--grad-primary);color:#fff;box-shadow:0 6px 18px -6px rgba(30,111,184,.6)}
 .btn-primary-sra:hover{transform:translateY(-3px);box-shadow:0 14px 24px -8px rgba(30,111,184,.7);color:#fff}
 .btn-accent-sra{background:var(--grad-accent);color:#fff;box-shadow:0 6px 18px -6px rgba(243,156,32,.6)}
@@ -68,7 +68,7 @@ html, body {
 .navbar-sra .brand-text{line-height:1.1}
 .navbar-sra .brand-text .name{font-family:'Poppins',sans-serif;font-weight:800;color:var(--sra-blue);font-size:1.2rem;display:block}
 .navbar-sra .brand-text .tag{font-size:.7rem;letter-spacing:2px;color:var(--sra-orange);text-transform:uppercase}
-.navbar-sra .nav-link{color:var(--sra-dark)!important;font-weight:600;font-size:.95rem;padding:10px 16px!important;position:relative}
+.navbar-sra .nav-link{color:var(--sra-dark)!important;font-weight:600;font-size:.95rem;padding:10px 16px!important;margin-bottom: 5px; position:relative}
 .navbar-sra .nav-link::after{content:"";position:absolute;left:50%;bottom:4px;width:0;height:2px;background:var(--sra-orange);transition:all .3s}
 .navbar-sra .nav-link:hover::after,.navbar-sra .nav-link.active::after{width:60%;left:20%}
 .navbar-sra .nav-link.active,.navbar-sra .nav-link:hover{color:var(--sra-blue)!important}
@@ -85,14 +85,109 @@ html, body {
 .hero-slider .hero-pretitle{display:inline-block;background:var(--grad-accent);color:#fff;padding:6px 16px;border-radius:30px;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;font-weight:600}
 .hero-slider h1{color:#fff;font-size:clamp(2rem,5vw,3.8rem);font-weight:800;margin-bottom:20px;line-height:1.15;text-shadow:0 4px 16px rgba(0,0,0,.4);max-width:780px}
 .hero-slider p{color:#e6ecf3;font-size:clamp(1rem,1.4vw,1.15rem);max-width:600px;margin-bottom:30px}
-.hero-slider .carousel-indicators{bottom:30px}
+.hero-slider .carousel-indicators{bottom:0px}
 .hero-slider .carousel-indicators button{width:40px;height:4px;border-radius:2px;background:#fff;opacity:.4}
 .hero-slider .carousel-indicators .active{background:var(--sra-orange);opacity:1}
 .hero-slider .carousel-control-prev,.hero-slider .carousel-control-next{width:60px;opacity:.7}
 .hero-slider .carousel-control-prev-icon,.hero-slider .carousel-control-next-icon{width:50px;height:50px;background-color:rgba(243,156,32,.85);border-radius:50%;background-size:40%}
 
+/* =========================================================
+   Hero Slider Responsive Fixes (Exact Match & Overlap Fix)
+   ========================================================= */
+
+@media (max-width: 991px) {
+  .hero-slider .carousel-item {
+    height: 70vh;
+    min-height: 500px;
+  }
+  .hero-slider .carousel-caption {
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-slider .carousel-item {
+    height: 100vh;
+    min-height: 550px;
+  }
+  
+  /* FIX 1: Anchor text to the bottom to stop overlapping with indicators */
+  .hero-slider .carousel-caption {
+    top: 15%; 
+    bottom: 80px; /* Forces the entire block to sit cleanly above the indicators */
+    transform: none; /* Removes the vertical centering */
+    text-align: left;
+    left: 5%;
+    right: 65px; /* FIX 2: Prevents buttons/text from hitting the WhatsApp icon */
+    padding: 0;
+  }
+  
+  .hero-slider .hero-pretitle {
+    font-size: 0.75rem;
+    padding: 6px 14px;
+    margin-bottom: 12px;
+  }
+
+  .hero-slider h1 {
+    font-size: clamp(1.9rem, 8vw, 2.6rem); 
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  
+  .hero-slider p {
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+  }
+  
+  /* FIX 3: Shrink buttons slightly so they fit side-by-side perfectly */
+  .hero-slider .carousel-caption .btn {
+    display: inline-block; 
+    width: auto;
+    padding: 10px 12px; 
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    white-space: nowrap; /* Prevents text inside the button from wrapping to two lines */
+  }
+  
+  .hero-slider .carousel-caption .me-2 {
+    margin-right: 6px !important;
+  }
+  
+  /* Push indicators to the very bottom, out of the way of the buttons */
+  .hero-slider .carousel-indicators {
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .hero-slider .carousel-indicators button {
+    width: 32px;
+    height: 12px; 
+    margin: 0 5px;
+    border-radius: 2px;
+    opacity: 0.5;
+    background-color: #aeb8c3;
+  }
+
+  .hero-slider .carousel-indicators .active {
+    opacity: 1;
+    background-color: var(--sra-orange);
+  }
+}
+
+/* Extra safety for ultra-small screens (like older iPhones) */
+@media (max-width: 380px) {
+  .hero-slider .carousel-caption .btn {
+    padding: 8px 8px;
+    font-size: 0.75rem;
+  }
+}
 /* Page Banner */
-.page-banner{padding:140px 0 70px;background:linear-gradient(120deg,rgba(15,26,43,.92),rgba(30,111,184,.85)),url('../images/hero-2.jpg') center/cover;color:#fff;position:relative}
+.page-banner{padding:240px 0 70px;background:url('../images/hero-2.jpg') center/cover;color:#fff;position:relative; min-height: 500px;}
 .page-banner h1{color:#fff;font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:10px}
 .page-banner .breadcrumb{justify-content:center;background:transparent;margin:50px}
 .page-banner .breadcrumb-item,.page-banner .breadcrumb-item a{color:#cdd4dd}
@@ -210,12 +305,38 @@ html, body {
 .footer h5::after{content:"";position:absolute;left:0;bottom:0;width:40px;height:2px;background:var(--sra-orange)}
 .footer a{color:#cdd4dd;display:inline-block;padding:5px 0;font-size:.92rem}
 .footer a:hover{color:var(--sra-orange);padding-left:6px}
-.footer .brand img{height:60px;margin-bottom:14px;background:#fff;padding:6px;border-radius:8px}
+.footer .brand img{height:60px;margin-bottom:14px;background:#fff;padding:6px;border-radius:8px;}
 .footer .social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:inline-flex;align-items:center;justify-content:center;margin-right:8px;color:#fff;padding:0}
 .footer .social a:hover{background:var(--sra-orange);padding-left:0;transform:translateY(-3px)}
 .footer .contact-list li{display:flex;gap:12px;margin-bottom:14px;font-size:.92rem}
 .footer .contact-list i{color:var(--sra-orange);font-size:1.05rem;flex-shrink:0;margin-top:3px}
 .footer .copy{border-top:1px solid rgba(255,255,255,.08);margin-top:50px;padding:20px 0;font-size:.88rem;text-align:center}
+
+/* Center Footer Logo and Social Icons on Mobile Devices */
+@media (max-width: 767px) {
+  /* Centers the logo container */
+  .footer .brand {
+    text-align: center;
+  }
+  
+  /* Ensures the image acts as a block and centers itself if needed */
+  .footer .brand img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Centers the social icons */
+  .footer .social {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* OPTIONAL: Center the paragraph text below the logo for a uniform look */
+  .footer .col-lg-4 p {
+    text-align: left;
+  }
+}
 
 /* Floating buttons */
 .float-btns{
