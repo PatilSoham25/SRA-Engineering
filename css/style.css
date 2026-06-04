@@ -210,6 +210,107 @@ html, body {
 .page-banner-contact .breadcrumb-item.active{color:var(--sra-orange)}
 .page-banner-contact .breadcrumb-item+.breadcrumb-item::before{color:#cdd4dd}
 
+/* Page Banner CNC Works */
+.page-banner-cnc-works{padding:240px 0 70px;background:url('../images/CNC-works-hero.jpg') center/cover;color:#fff;position:relative; min-height: 500px;}
+.page-banner-cnc-works h1{
+    color:#0f1a2b;
+    font-size:clamp(1.9rem,4vw,2.8rem);
+    margin-bottom:10px;
+
+    display:inline-block;
+    background:rgba(255,255,255,0.85);
+    padding:12px 24px;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+.page-banner-cnc-works .breadcrumb{justify-content:center;background:transparent;margin:50px}
+.page-banner-cnc-works .breadcrumb-item,.page-banner-cnc-works .breadcrumb-item a{color:#cdd4dd}
+.page-banner-cnc-works .breadcrumb-item.active{color:var(--sra-orange)}
+.page-banner-cnc-works .breadcrumb-item+.breadcrumb-item::before{color:#cdd4dd}
+
+/* Page Banner CNC Components */
+.page-banner-component{padding:240px 0 70px;background:url('../images/cnc-components-hero.jpg') center/cover;color:#fff;position:relative; min-height: 500px;}
+.page-banner-component h1{
+    color:#0f1a2b;
+    font-size:clamp(1.9rem,4vw,2.8rem);
+    margin-bottom:10px;
+
+    display:inline-block;
+    background:rgba(255,255,255,0.85);
+    padding:12px 24px;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+.page-banner-component .breadcrumb{justify-content:center;background:transparent;margin:50px}
+.page-banner-component .breadcrumb-item,.page-banner-component .breadcrumb-item a{color:#cdd4dd}
+.page-banner-component .breadcrumb-item.active{color:var(--sra-orange)}
+.page-banner-component .breadcrumb-item+.breadcrumb-item::before{color:#cdd4dd}
+
+/* Page Banner Bushes */
+.page-banner-bushes{padding:240px 0 70px;background:url('../images/bushes-hero.jpg') center/cover;color:#fff;position:relative; min-height: 500px;}
+.page-banner-bushes h1{color:#0f1a2b;
+    font-size:clamp(1.9rem,4vw,2.8rem);
+    margin-bottom:10px;
+
+    display:inline-block;
+    background:rgba(255,255,255,0.85);
+    padding:12px 24px;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);}
+.page-banner-bushes .breadcrumb{justify-content:center;background:transparent;margin:50px}
+.page-banner-bushes .breadcrumb-item,.page-banner-bushes .breadcrumb-item a{color:#cdd4dd}
+.page-banner-bushes .breadcrumb-item.active{color:var(--sra-orange)}
+.page-banner-bushes .breadcrumb-item+.breadcrumb-item::before{color:#cdd4dd}
+
+/* Page Banner CNS Works */
+.page-banner-cns-works{padding:240px 0 70px;background:url('../images/CNS-works-hero.jpeg') center/cover;color:#fff;position:relative; min-height: 500px;}
+.page-banner-cns-works h1{color:#0f1a2b;
+    font-size:clamp(1.9rem,4vw,2.8rem);
+    margin-bottom:10px;
+
+    display:inline-block;
+    background:rgba(255,255,255,0.85);
+    padding:12px 24px;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);}
+.page-banner-cns-works .breadcrumb{justify-content:center;background:transparent;margin:50px}
+.page-banner-cns-works .breadcrumb-item,.page-banner-cns-works .breadcrumb-item a{color:#cdd4dd}
+.page-banner-cns-works .breadcrumb-item.active{color:var(--sra-orange)}
+.page-banner-cns-works .breadcrumb-item+.breadcrumb-item::before{color:#cdd4dd}
+
+/* Page Banner CNC Works and Components */
+.page-banner-works-components{padding:240px 0 70px;background:url('../images/cnc-works-components-hero.jpg') center/cover;color:#fff;position:relative; min-height: 500px;}
+.page-banner-works-components h1{color:#0f1a2b;
+    font-size:clamp(1.9rem,4vw,2.8rem);
+    margin-bottom:10px;
+
+    display:inline-block;
+    background:rgba(255,255,255,0.85);
+    padding:12px 24px;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);}
+.page-banner-works-components .breadcrumb{justify-content:center;background:transparent;margin:50px}
+.page-banner-works-components .breadcrumb-item,.page-banner-works-components .breadcrumb-item a{color:#cdd4dd}
+.page-banner-works-components .breadcrumb-item.active{color:var(--sra-orange)}
+.page-banner-works-components .breadcrumb-item+.breadcrumb-item::before{color:#cdd4dd}
+
+/* Page Banner Bush */
+.page-banner-bush{padding:240px 0 70px;background:url('../images/bush-hero.png') center/cover;color:#fff;position:relative; min-height: 500px; image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;}
+.page-banner-bush h1{color:#0f1a2b;
+    font-size:clamp(1.9rem,4vw,2.8rem);
+    margin-bottom:10px;
+
+    display:inline-block;
+    background:rgba(255,255,255,0.85);
+    padding:12px 24px;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);}
+.page-banner-bush .breadcrumb{justify-content:center;background:transparent;margin:50px}
+.page-banner-bush .breadcrumb-item,.page-banner-bush .breadcrumb-item a{color:#cdd4dd}
+.page-banner-bush .breadcrumb-item.active{color:var(--sra-orange)}
+.page-banner-bush .breadcrumb-item+.breadcrumb-item::before{color:#cdd4dd}
+
 /* Standalone Breadcrumb Bar */
 .breadcrumb-bar {
   background-color: var(--sra-white);
