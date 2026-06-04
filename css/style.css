@@ -194,6 +194,22 @@ html, body {
 .page-banner .breadcrumb-item.active{color:var(--sra-orange)}
 .page-banner .breadcrumb-item+.breadcrumb-item::before{color:#cdd4dd}
 
+/* Page Banner about */
+.page-banner-about{padding:240px 0 70px;background:url('../images/about-hero-img.jfif') center/cover;color:#fff;position:relative; min-height: 550px;}
+.page-banner-about h1{color:#fff;font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:10px}
+.page-banner-about .breadcrumb{justify-content:center;background:transparent;margin:50px}
+.page-banner-about .breadcrumb-item,.page-banner-about .breadcrumb-item a{color:#cdd4dd}
+.page-banner-about .breadcrumb-item.active{color:var(--sra-orange)}
+.page-banner-about .breadcrumb-item+.breadcrumb-item::before{color:#cdd4dd}
+
+/* Page Banner contact*/
+.page-banner-contact{padding:240px 0 70px;background:url('../images/contact-hero-img.jfif') center/cover;color:#fff;position:relative; min-height: 520px;}
+.page-banner-contact h1{color:#fff;font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:10px}
+.page-banner-contact .breadcrumb{justify-content:center;background:transparent;margin:50px}
+.page-banner-contact .breadcrumb-item,.page-banner-contact .breadcrumb-item a{color:#cdd4dd}
+.page-banner-contact .breadcrumb-item.active{color:var(--sra-orange)}
+.page-banner-contact .breadcrumb-item+.breadcrumb-item::before{color:#cdd4dd}
+
 /* Standalone Breadcrumb Bar */
 .breadcrumb-bar {
   background-color: var(--sra-white);
